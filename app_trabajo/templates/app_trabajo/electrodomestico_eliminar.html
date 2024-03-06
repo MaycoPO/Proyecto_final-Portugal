@@ -1,0 +1,16 @@
+{% extends "app_trabajo/base.html" %}
+{% load static %}
+
+{% block ContenidoCambiante %}
+
+    <form method="post"> {% csrf_token %}
+        <br>
+        ¿Estás seguro que deseas eliminar la compra número "{{ electrodomesticos.compra }}"?
+        <br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Aceptar" class="submit-button">
+    </form>
+
+
+
+{% endblock ContenidoCambiante %}

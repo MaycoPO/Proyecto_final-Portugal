@@ -1,0 +1,34 @@
+{% extends "app_trabajo/base.html" %}
+
+{% load static %}
+
+{% block ContenidoCambiante %}
+
+
+{% block header2 %}
+            
+          
+                
+<div class="text-bordes-negros">Editar usuario</div>
+
+
+{% endblock header2 %}
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table>
+                <br>
+                {{mi_form.as_table}}
+                
+
+            
+            </table>
+            <br>
+            <input type="submit" value="Actualizar" class="submit-button">
+
+        </form>
+
+
+
+
+{% endblock ContenidoCambiante %}

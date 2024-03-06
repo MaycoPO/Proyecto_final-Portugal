@@ -1,0 +1,23 @@
+{% extends "app_trabajo/base.html" %}
+{% load static %}
+
+{% block ContenidoCambiante %}
+
+    {% csrf_token %}
+    <br>
+    <p>Electrodomestico: <i>{{ electrodomesticos.electrodomestico }} </i> </p>
+    <p>Modelo: <i>{{ electrodomesticos.modelo }} </i> </p>
+    <p>Número de compra: <i>{{ electrodomesticos.compra }} </i> </p>
+    <p>Cliente: <i>{{ electrodomesticos.cliente }} </i> </p>
+    {% if request.user.is_superuser %}
+    <p>DNI: <i>{{ electrodomesticos.DNI }} </i> </p>
+    {% endif %}
+    <p>
+        <a href="{% url 'electrodomesticos_ver'%}" class="button detail-button">Regresar</a>
+    </p>
+
+
+
+
+
+{% endblock ContenidoCambiante %}

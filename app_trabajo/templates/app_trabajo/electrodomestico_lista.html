@@ -1,0 +1,38 @@
+{% extends "app_trabajo/base.html" %}
+{% load static %}
+{% block ContenidoCambiante %}
+
+       
+        
+                
+            {% block header2 %}
+            
+          
+                
+                <div class="text-bordes-negros">Lista de compras</div>
+          
+                
+                {% endblock header2 %}
+            
+       
+        {% for electrodomesticos in object_list %}
+        <li class="purchase-item">
+            <div class="purchase-info">
+                <p class="purchase-number">NÚMERO DE COMPRA: {{ electrodomesticos.compra }}</p>
+                <p class="customer-name">NOMBRE DEL CLIENTE: {{ electrodomesticos.cliente }}</p>
+            </div>
+            <div class="button-container">
+                <a href="{% url 'Detalle' electrodomesticos.id %}" class="button">Ver</a>
+                {% if request.user.is_superuser %}
+                <a href="{% url 'Editar' electrodomesticos.id %}" class="button edit-button">Editar</a>
+                <a href="{% url 'Borrar' electrodomesticos.id %}" class="button delete-button">Borrar</a>
+                {% endif %}
+            </div>
+        </li>
+        {% endfor %}
+    
+  
+
+
+        
+{% endblock ContenidoCambiante %}

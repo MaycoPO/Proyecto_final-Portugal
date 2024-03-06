@@ -1,0 +1,68 @@
+{% extends "app_trabajo/base.html" %}
+
+{% load static %}
+
+
+
+{% block ContenidoCambiante %}
+
+
+{% block header2 %}
+            
+          
+                
+                <div class="text-bordes-negros">Cambiar avatar</div>
+          
+                
+                {% endblock header2 %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Actualizar</title>
+<style>
+/* Estilos para el botón */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background-color: #4CAF50;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.button:active {
+  background-color: #3e8e41;
+}
+</style>
+</head>
+<body>
+
+<!-- Formulario con el botón -->
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <br>
+    {{ mi_form.as_p }}
+    <input type="submit" value="Actualizar" class="button">
+</form>
+
+</body>
+</html>
+
+
+
+
+{% endblock ContenidoCambiante %}

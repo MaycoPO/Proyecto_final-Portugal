@@ -1,0 +1,18 @@
+{% extends "app_trabajo/base.html" %}
+{% load static %}
+
+{% block ContenidoCambiante %}
+
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <br>
+        {{form.as_p}}
+        {% csrf_token %}
+
+        <input type="submit" value="Registrarse">
+
+    </form>
+
+
+{% endblock ContenidoCambiante %}

@@ -1,0 +1,24 @@
+{% extends "app_trabajo/base.html" %}
+{% load static %}
+{% block ContenidoCambiante %}
+
+
+{% block header2 %}
+            
+          
+                
+<div class="text-bordes-negros">Compras</div>
+
+
+{% endblock header2 %}
+
+    <form method="post">
+        {% csrf_token %}
+
+        &nbsp;&nbsp;&nbsp;&nbsp;{{ form.as_p }}
+
+        &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Enviar"  class="submit-button">
+    </form>
+
+
+{% endblock ContenidoCambiante %}

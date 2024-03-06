@@ -1,0 +1,564 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Tienda</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{%static 'app_trabajo/assets/favicon.ico'%}" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{%static 'app_trabajo/css/styles.css'%}" rel="stylesheet" />
+        <style>
+            /* Estilo de texto con bordes negros */
+            .text-bordes-negros {
+                color: white; /* Color del texto */
+                text-shadow: -1px -1px 0 #000,  
+                              1px -1px 0 #000,
+                             -1px 1px 0 #000,
+                              1px 1px 0 #000;
+                              font-size: 45px; /* Estilo de sombra de texto para simular bordes negros */
+            }
+            {% block head %}
+            .navbar.navbar-dark {
+                background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro con 50% de opacidad */
+            }
+            body {
+                background-color: #BABFC6; /* Cambia el fondo de la página a blanco */
+            }
+            {% endblock head %}
+        </style>
+        
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Inicio' %}">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'electrodomesticos_ver' %}">Ver Compras</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Crear' %}">Agregar compras</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'AcercaDeMi' %}">Acerca de mí</a></li>
+                        
+                        
+
+                        
+                        
+
+                        {% if request.user.is_authenticated %}
+                           
+                                <img src="{{user_avatar}}" alt="" style="height: 40px; width: 40px; border-radius: 50%;">
+          
+        
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        
+                                        {{ request.user.username }}
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><a class="dropdown-item" href="{% url 'EditarUsuario' %}">Editar perfil</a></li>
+                                       <div class="dropdown-divider"></div>
+                                        <li><a class="dropdown-item" href="{% url 'AgregarAvatar' %}">Cambiar Avatar</a></li>
+                                        <div class="dropdown-divider"></div>
+                                        <li><a class="dropdown-item" href="{% url 'Logout' %}">Cerrar sesión</a></li>
+                                    </ul>
+                                </div>
+                            
+                            {% else %}
+    
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Cuenta
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="{% url 'Login' %}">Iniciar Sesion</a></li>
+                                    <div class="dropdown-divider"></div>
+                                    <li><a class="dropdown-item" href="{% url 'Register' %}">Registrarse</a></li>
+                                </ul>
+                            </div>
+
+                        {% endif %}
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+      
+        <body>
+            {% block header %}
+            <header class="masthead">
+                
+                <div class="container">
+                
+                    {% block header2 %}<div class="text-bordes-negros">Bienvenido a nuestro estudio!</div>  {% endblock header2 %}
+                    <div class="text-bordes-negros">MAXTECNO</div>
+                    
+                </div>
+               
+            </header>
+            {% endblock header %}
+        </body>
+        </html>
+        {% block ContenidoCambiante %}
+        
+        {% endblock ContenidoCambiante %}
+  
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; Mi sitio web 2024</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        
+                        <a class="btn btn-dark btn-social mx-2" href="https://wa.me/543516066569?text=Hola, cómo está? vi su página web y me quiero comunicar con usted"><i class="fab fa-whatsapp"></i></i></a>
+
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a class="link-dark text-decoration-none me-3">Política de privacidad</a>
+                        <a class="link-dark text-decoration-none">Términos de uso</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Portfolio Modals-->
+        <!-- Portfolio item 1 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="{%static 'app_trabajo/assets/img/close-icon.svg'%}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">SMART LED ANDROID TV QUINT 32 PULGADAS</h2>
+                                    <p class="item-intro text-muted">HD QT2-32ANDROID</p>
+                                    <img class="img-fluid d-block mx-auto" src="{%static 'app_trabajo/assets/img/portfolio/1.jpg'%}" alt="..." />
+                                    <p> Televisor Smart LED Android. Pantalla de 32" HD (1366 x 768). Brillo 220 CD/M2. Contraste 3000:1. Tasa de refresco 60Hz. Tiempo de respuesta 6.5ms. Salidas de audio. Potencia 2 x 8W. Dolby MS12V2-Y. Conexiones: 2 Entradas HDMI. 2 USB. 1 AV in. Salida de auricular. RJ45. RF Input. Sintonizador TDA. Soporte VESA 100x100. Incluye control remoto. Medidas con soporte (alt-anch-prof) 47.92 x 72.59 x 19.25 cm.</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Modelo:</strong>
+                                            SMART LED ANDROID TV QUINT 32 PULGADAS
+                                        </li>
+                                        <li>
+                                            <strong>Precio:</strong>
+                                            $199.999,00
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        CERRAR VENTANA
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 2 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="{%static 'app_trabajo/assets/img/close-icon.svg'%}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">CELULAR MOTOROLA MOTO G84</h2>
+                                    <p class="item-intro text-muted">XT2347-1 MAGENTA</p>
+                                    <img class="img-fluid d-block mx-auto" src="{%static 'app_trabajo/assets/img/portfolio/2.jpg'%}" alt="..." />
+                                    <p>Celular. Pantalla de 6.55" pOLED. Resolucion: 2400x1080 FHD+, 402ppi, HiD, 120 Hz. Procesador octa core, 2.2 GHz, Qualcomm Snapdragon 695 5G. Almacenamiento de 256 GB (disponible para el usuario 232 GB / expande hasta 512 GB). Memoria RAM de 8 GB. Camara trasera: Principal de 50 MP (84.1) F1.88 + Gran angular y macro: 8 MP (118.6) F2.2. Zoom digital (8x picture / 6x video). Flash LED. Camara frontal: 16 MP (82) F2.45. Flash frontal: Backlight. Conexiones: Wifi 802.11 a/b/g/n/ac/k/v/r/u - WIFI5. Bluetooth 5.1. USB-C, version 2.0. Tarjeta de memoria MicroSD. Jack de audio 3.5 mm. NFC. GPS. Radio FM. Sensores: Acelerometro, sensor de proximidad, brujula (campo magnetico), giroscopio, huella dactilar, desbloqueo facial. Sistema operativo Android 13. Bateria: 5000 mAh. Incluye: Cable de datos USB-A - USB-C, cargador 33W USB-A, herramienta de extraccion de SIM y cubierta protectora.</p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Modelo:</strong>
+                                            G84
+                                        </li>
+                                        <li>
+                                            <strong>Precio:</strong>
+                                            $549.999,00
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Cerrar ventana
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 3 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="{%static 'app_trabajo/assets/img/close-icon.svg'%}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">NOTEBOOK GAMER ASUS</h2>
+                                    <p class="item-intro text-muted">ROG STRIX SCAR 18 G834JY-N6016W - 90NR0CG1-M00150 INTEL CORE I9</p>
+                                    <img class="img-fluid d-block mx-auto" src="{%static 'app_trabajo/assets/img/portfolio/3.jpg'%}" alt="..." />
+                                    <p>Notebook gamer. Pantalla de 18" QHD+ 16:10 (2560 x 1600, WQXGA). Tiempo de respuesta 3ms. Tasa de refresco 240 Hz. Panel tech IPS-level. Contraste 1000:1. Brillo 500. Procesador 13th Gen Intel Core i9-13980HX Processor 2.2 GHz (36M Cache, up to 5.6 GHz, 24 cores: 8 P-cores and 16 E-cores). Capacidad 1TB PCIe 4.0 NVMe M.2 Performance SSD. RAM 16GB DDR5-4800 SO-DIMM *2. Placa de video NVIDIA GeForce RTX 4090 Laptop GPU. Conexiones: Wi-Fi 6E(802.11ax) (Triple band) 2*2 + Bluetooth 5.3 Wireless Card. 1x 2.5G LAN port. 1x Thunderbolt 4 support DisplayPort / G-SYNC. 1x USB 3.2 Gen 2 Type-C support DisplayPort / power delivery / G-SYNC2x USB 3.2 Gen 2 Type-A. 1x HDMI 2.1 FRL. 1x 3.5mm Combo Audio Jack. Microfono incorporado. 2x SO-DIMM slots. Sistema operativo Windows 11 home. Camara 720 HD. Bateria 90WHrs, 4S1P, 4-cell Li-ion.
+                                    </p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Modelo:</strong>
+                                            ROG STRIX SCAR 18 G834JY-N6016W - 90NR0CG1-M00150
+                                        </li>
+                                        <li>
+                                            <strong>Precio:</strong>
+                                            $6.999.999,00
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Cerrar ventana
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 4 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="{%static 'app_trabajo/assets/img/close-icon.svg'%}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">TABLET LENOVO M10 PLUS</h2>
+                                    <p class="item-intro text-muted">ZAAJ0231AR 10.61' 64 GB GRIS ACERO</p>
+                                    <img class="img-fluid d-block mx-auto" src="{%static 'app_trabajo/assets/img/portfolio/4.jpg'%}" alt="..." />
+                                    <p>
+                                        Tablet. Pantalla de 10.61", resolucion 2000 x 1200, 400nits anti fingerprint, 72% NTSC, 60 Hz. Multitouch. Procesador MediaTek Helio G80 (8C, 2x A75 2.0 GHz + 6x A55 1.8 GHz). Velocidad del procesador 2 GHz. Placa de video integrada ARM Mali-G52 MC2 GPU. Capacidad 64 Gb eMMC 5.1 (eMCP). RAM 4 Gb LPDDR4x. Camara principal de 8 Mp. Camara frontal de 8 Mp. Sistema operativo Android 12. Conexiones: Bluetooth 5.0. Wi Fi. Lector de tarjetas Micro SD (expandible hasta 1Tb). USB-C 2.0. Microfono incorporado, entrada para auricular de 3.5mm. Parlantes. Video HD IPS 400 nits. Bateria de 7500 mAh. Incluye cargador y folio case.
+                                        
+                                        </p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Modelo:</strong>
+                                            TB328FU
+                                        </li>
+                                        <li>
+                                            <strong>Precio:</strong>
+                                            $369.999,00
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Cerrar ventana
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 5 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="{%static 'app_trabajo/assets/img/close-icon.svg'%}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">SMART LED GOOGLE TV NOBLEX</h2>
+                                    <p class="item-intro text-muted">55 PULGADAS 4K UHD DK55X7500</p>
+                                    <img class="img-fluid d-block mx-auto" src="{%static 'app_trabajo/assets/img/portfolio/5.jpg'%}" alt="..." />
+                                    <p>Televisor Smart Google. Pantalla LED de 55" UHD 4K (3840x2160). Frecuencia de barrido 60 Hz. Radio contraste 4000:1. Contraste dinamico 4000:1. Brillo 300 CD/M2. Potencia RMS 8W x2. Salidas de audio Stereo. Tipo de sonido: Standard / Teatro / Musica / Dialogo / Nocturno. Conexiones: Wi Fi. Bluetooth. 3 Entradas HDMI. 2 Entradas USB. Sintonizador TDA. Medidas con base (Alto x ancho x profundidad) 77.1 x 123 x 23.9cm.
+
+                                    </p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Modelo:</strong>
+                                            DK55X7500
+                                        </li>
+                                        <li>
+                                            <strong>Precio:</strong>
+                                            $499.999,00
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Cerrar ventana
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 6 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="{%static 'app_trabajo/assets/img/close-icon.svg'%}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">NOTEBOOK SAMSUNG GALAXY</h2>
+                                    <p class="item-intro text-muted">BOOK3 INTEL CORE I7</p>
+                                    <img class="img-fluid d-block mx-auto" src="{%static 'app_trabajo/assets/img/portfolio/6.jpg'%}" alt="..." />
+                                    <p>Notebook. Pantalla de 15.6" FHD, PLS. Procesador Intel Core i7, 13 Generacion (1.7 hasta 5.0 GHz) 10 nucleos. Capacidad 512 Gb SSD. RAM 16 Gb. Placa de video Intel Iris Xe Graphics / Intel UHD. Conexiones: Bluetooth. Wi Fi. USB-C (2), USB 3.2 Type-A (2). 1 HDMI. Entrada para microfono. Microfono incorporado. Lector de tarjetas Micro SD. Sistema operativo Windows 11. Camara HD (720 p). Bateria 54 Wh.
+                                    </p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <strong>Modelo:</strong>
+                                            GALAXY BOOK3
+                                        </li>
+                                        <li>
+                                            <strong>Precio:</strong>
+                                            $1.519.999,05
+                                        </li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close Project
+                                    </button>
+
+                       
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    
+        <!-- Portfolio item 7 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app_trabajo/assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">VGA Gigabyte GeForce RTX 4080</h2>
+                            <p class="item-intro text-muted">RTX 4080 SUPER GAMING OC 16G (4190) IN</p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app_trabajo/assets/img/portfolio/7.jpg' %}" alt="..." />
+                            <p>Procesamiento de gráficos
+
+                                GeForce RTX™ 4080 SÚPER
+                                
+                                Reloj de núcleo
+                                
+                                2595 MHz (Tarjeta de referencia: 2550 MHz)
+                                
+                                Núcleos CUDA®
+                                
+                                10240
+                                
+                                Reloj de la memoria
+                                
+                                23 Gbps
+                                
+                                Tamaño de la memoria
+                                
+                                16 GB
+                                
+                                Tipo de memoria
+                                
+                                GDDR6X
+                                
+                                Autobús de memoria
+                                
+                                256 bits
+                                
+                                Tarjeta de autobús
+                                
+                                PCI
+                                
+                                E 4.0
+                                
+                                Resolución máxima digital
+                                
+                                7680x4320
+                                
+                                Vista múltiple
+                                
+                                Tamaño de tarjeta
+                                
+                                Largo=342 Ancho=150 Alto=75 mm
+                                
+                                Formulario de PCB
+                                
+                                ATX
+                                
+                                DirectX
+                                
+                                12 último
+                                
+                                OpenGL
+                                
+                                4.6
+                                
+                                Fuente de alimentación recomendada
+                                
+                                850W
+                                
+                                Conectores de alimentación
+                                
+                                16 pines * 1
+                                
+                                Producción
+                                
+                                DisplayPort 1.4a *3
+                                
+                                HDMI 2.1a *1</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Modelo:</strong>
+                                    GeForce RTX™ 4080
+                                </li>
+                                <li>
+                                    <strong>Precio:</strong>
+                                    $2.288.900,00
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Cerrar ventana
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Portfolio item 8 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal8" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app_trabajo/assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">PC RYZEN 7 5700G + GABINETE KELYX C COMBO TECL/MOUSE</h2>
+                            <p class="item-intro text-muted">A520 MSI + 240GB SSD + 8GB RAM - 2024</p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app_trabajo/assets/img/portfolio/8.jpg' %}" alt="..." />
+                            <p>ITEM	 	CANTIDAD
+                                CPU	CPU AMD RYZEN 5 5600G	(1).
+                                MEMORIA	DDR4 8GB 3200MHZ	(1).
+                                GABINETE	KIT KELYX MODELO LC728-12 TECLADO + MOUSE	(1).
+                                MOTHER	MOTHER MSI A520M-A PRO AM4 H/D M.2	(1).
+                                SSD	DISCO SSD 240GB A400 KINGSTON	(1).
+                                FUENTE	500W KELYX	(1).</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Modelo:</strong>
+                                    MODELO LC728-12 (Gabinete)
+                                </li>
+                                <li>
+                                    <strong>Precio:</strong>
+                                    $599.999,00
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Cerrar ventana
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Portfolio item 9 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal9" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app_trabajo/assets/img/close-icon.svg' %}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">MONITOR LED 20 E-VIEW</h2>
+                            <p class="item-intro text-muted">1951AXA VGA/HDMI (1600x900)</p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app_trabajo/assets/img/portfolio/9.jpg' %}" alt="..." />
+                            <p>Tamaño de la pantalla
+                                20 ".
+                                Resolución de la pantalla
+                                1600x900.
+                                Frecuencia de actualización recomendada
+                                60 Hz.
+                                Frecuencia máxima de actualización
+                                60 Hz.
+                                Tipo de resolución
+                                HD.
+                                Tipo de pantalla
+                                LED.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Modelo:</strong>
+                                    1951AXA
+                                </li>
+                                <li>
+                                    <strong>Precio:</strong>
+                                    $114.999,00
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Cerrar ventana
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>

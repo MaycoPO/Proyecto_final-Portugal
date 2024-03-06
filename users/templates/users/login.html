@@ -1,0 +1,28 @@
+{% extends "app_trabajo/base.html" %}
+{% load static %}
+
+
+
+{% block ContenidoCambiante %}
+
+
+
+    {% comment "" %}<div class="d-flex justify-content-center">
+
+        <div class="d-flex Flex-column">
+
+            <p class="fs-5 fw-bold"> {{msg_login}} </p> {% endcomment %}
+
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <br>
+            {{form.as_p}}
+            {% csrf_token %}
+
+            <input type="Submit" value="Iniciar Sesion">
+        </form>
+
+
+
+{% endblock ContenidoCambiante %}

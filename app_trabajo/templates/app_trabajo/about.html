@@ -1,0 +1,74 @@
+{% extends "app_trabajo/base.html" %}
+{% load static %}
+
+{% block head %}
+    body {
+        background-color: #BDBDBD; /* Cambia el fondo de la página a blanco */
+    }
+{% endblock head %}
+
+{% block header %}
+
+{% endblock header %}
+
+
+{% block ContenidoCambiante %}
+<!-- About-->
+<section class="page-section" id="about">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Acerca de mí</h2>
+            <h3 class="section-subheading text-muted"></h3>
+        </div>
+        <ul class="timeline">
+            <li>
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="{%static 'app_trabajo/assets/img/about/1.jpg'%}" alt="..." /></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        
+                        <h4 class="subheading">Mis comienzos</h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">¡Bienvenido a mi página web! Soy Mayco Portugal, y estoy encantado de que estés aquí. Permíteme contarte un poco sobre mí: 
+                        <br>
+                    
+                        Soy un estudiante que está cursando la carrera de ingeniería en sistemas y estoy apasionado por aprender más sobre la programación backend. Desde que era un niño, he sentido una curiosidad insaciable por la programación. Esta pasión me ha llevado a aprender por mi cuenta sobre este mundo incluso sin haber empezado la carrera.</p></div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="{%static 'app_trabajo/assets/img/about/2.jpg'%}" alt="..." /></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4 class="subheading">Mi objetivo</h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">Como estudiante, me esfuerzo por mejorar día a día para lograr ser un gran desarrollador web. Creo firmemente en que lo voy a lograr.
+
+                        Cuando no estoy estudiando, me gusta investigar sobre cómo puedo llegar a mejorar mis conocimientos. </p></div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="{%static 'app_trabajo/assets/img/about/3.jpg'%}" alt="..." /></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4 class="subheading">Contacto</h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">Si quiere saber más sobre mí o sobre lo que hago, ¡no dude en ponerse en contacto! con mucho gusto hablaré con usted sobre cualquier tema que se le presente.</p></div>
+                </div>
+            </li>
+            
+            <li class="timeline-inverted">
+                <div class="timeline-image">
+                    <h4>
+                        Contácteme!
+                        <br />
+                        
+                        <br />
+                        
+                        <a class="btn btn-dark btn-social mx-2" href="https://wa.me/543516066569?text=Hola, cómo está? vi su página web y me quiero comunicar con usted"><i class="fab fa-whatsapp"></i></i></a>
+
+                    </h4>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+{% endblock ContenidoCambiante %}
